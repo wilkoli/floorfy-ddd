@@ -1,0 +1,11 @@
+parameters:
+  validator.schema_path: '%kernel.project_dir%/spec'
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+
+  JsonSchema\Validator:
+    class: JsonSchema\Validator

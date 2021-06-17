@@ -1,0 +1,24 @@
+version: '2'
+services:
+  floorfy-php:
+    build:
+      context: ./docker/php
+      args: [ "HOST_IP=${DOCKER_HOST_IP}" ]
+    container_name: floorfy-php
+    restart: unless-stopped
+    env_file: .env
+    environment: [ "PHP_IDE_CONFIG=serverName=docker" ]
+    ports: [ "8888:80" ]
+    volumes:
+      - "./:/app"
+    tty: true
+    depends_on:
+      - floorfy-db
+
+  floorfy-db:
+    image: mysql:5.7
+    container_name: floorfy-db
+    restart: unless-stopped
+    env_file: .env
+    ports: [ "3300:3306" ]
+    tty: true

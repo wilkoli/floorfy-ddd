@@ -1,0 +1,20 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+
+  Floorfy\Application\Shared\CommandBus:
+    class: Floorfy\Infrastructure\Messenger\SyncCommandBus
+    arguments: ['@command.bus']
+
+  Floorfy\Application\Shared\QueryBus:
+    class: Floorfy\Infrastructure\Messenger\SyncQueryBus
+    arguments: ['@query.bus']
+
+  Floorfy\Application\Command\Property\:
+    resource: '%kernel.root_dir%/Application/Command/Property/*Handler.php'
+    tags: [{ name: messenger.message_handler, bus: command.bus }]
+    autoconfigure: false

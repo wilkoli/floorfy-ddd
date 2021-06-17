@@ -1,0 +1,11 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+imports:
+    - { resource: services/application_layer.yaml }
+    - { resource: services/domain_layer.yaml }
+    - { resource: services/infrastructure_layer.yaml }
+    - { resource: services/user_interface_layer.yaml }
+    - { resource: services/third_party/validators.yaml }

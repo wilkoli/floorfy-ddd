@@ -1,0 +1,11 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Floorfy\UserInterface\Http\Property\CreatePropertyController:
+    arguments:
+      $requestValidator: '@Floorfy\Infrastructure\Validator\Property\CreatePropertyRequestValidator'
+    tags: ['controller.service_arguments']

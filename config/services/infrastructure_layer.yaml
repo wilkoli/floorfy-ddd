@@ -1,0 +1,10 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Floorfy\Infrastructure\Validator\Property\CreatePropertyRequestValidator:
+    arguments:
+      $validatorSchemaPath: "%validator.schema_path%"

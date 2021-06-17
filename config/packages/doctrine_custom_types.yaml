@@ -1,0 +1,5 @@
+doctrine:
+  dbal:
+    types:
+      carbon: Floorfy\Infrastructure\Persistence\Doctrine\Types\CarbonDateTimeType
+      carbon_immutable: Floorfy\Infrastructure\Persistence\Doctrine\Types\CarbonDateTimeImmutableType

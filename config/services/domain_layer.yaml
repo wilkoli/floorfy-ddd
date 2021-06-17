@@ -1,0 +1,14 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Floorfy\Domain\Model\Property\PropertyRepository:
+    class: Floorfy\Infrastructure\Persistence\Doctrine\Repository\DoctrinePropertyRepository
+    factory: ["@doctrine", getRepository]
+    arguments: ["DomainModel:Property\\Property"]
+
+  Floorfy\Domain\Model\Property\PropertyBuilder:
+    class: Floorfy\Domain\Model\Property\PropertyBuilder

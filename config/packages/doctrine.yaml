@@ -1,0 +1,35 @@
+doctrine:
+    dbal:
+        default_connection: write
+        connections:
+            write:
+                driver:   pdo_mysql
+                host:     '%env(MYSQL_HOST)%'
+                port:     '%env(MYSQL_PORT)%'
+                dbname:   '%env(MYSQL_DATABASE)%'
+                user:     '%env(MYSQL_USER)%'
+                password: '%env(MYSQL_PASSWORD)%'
+                charset:  UTF8
+                server_version: '5.7'
+                url: '%env(resolve:DATABASE_URL)%'
+            read:
+                driver:   pdo_mysql
+                host:     '%env(MYSQL_HOST)%'
+                port:     '%env(MYSQL_PORT)%'
+                dbname:   '%env(MYSQL_DATABASE)%'
+                user:     '%env(MYSQL_USER)%'
+                password: '%env(MYSQL_PASSWORD)%'
+                charset:  UTF8
+                server_version: '5.7'
+                url: '%env(resolve:DATABASE_URL)%'
+
+    orm:
+        auto_mapping: false
+        connection: write
+        mappings:
+            DomainModel:
+                type:      xml
+                dir:       "%kernel.root_dir%/Infrastructure/Persistence/Doctrine/Mapping/DomainModel"
+                prefix:    Floorfy\Domain\Model
+                alias:     DomainModel
+                is_bundle: false

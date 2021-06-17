@@ -1,0 +1,5 @@
+
+create_property:
+  path: /api/property/add
+  controller: Floorfy\UserInterface\Http\Property\CreatePropertyController
+  methods: [POST]
