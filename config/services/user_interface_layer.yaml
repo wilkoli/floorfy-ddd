@@ -9,3 +9,18 @@ services:
     arguments:
       $requestValidator: '@Floorfy\Infrastructure\Validator\Property\CreatePropertyRequestValidator'
     tags: ['controller.service_arguments']
+
+  Floorfy\UserInterface\Http\Property\CreateTourController:
+    arguments:
+      $requestValidator: '@Floorfy\Infrastructure\Validator\Property\CreateTourRequestValidator'
+    tags: ['controller.service_arguments']
+
+  Floorfy\UserInterface\Http\Property\UpdatePropertyController:
+    arguments:
+      $requestValidator: '@Floorfy\Infrastructure\Validator\Property\UpdatePropertyRequestValidator'
+    tags: ['controller.service_arguments']
+
+  Floorfy\UserInterface\Http\Property\UpdateTourController:
+    arguments:
+      $requestValidator: '@Floorfy\Infrastructure\Validator\Property\UpdateTourRequestValidator'
+    tags: ['controller.service_arguments']

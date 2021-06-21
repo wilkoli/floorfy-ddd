@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "The Property object",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "property id"
+    },
+    "title": {
+      "type": "string",
+      "nullable": true,
+      "description": "property title"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "description": "property description"
+    }
+  }
+}

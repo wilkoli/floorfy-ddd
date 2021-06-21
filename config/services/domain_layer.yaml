@@ -12,3 +12,6 @@ services:
 
   Floorfy\Domain\Model\Property\PropertyBuilder:
     class: Floorfy\Domain\Model\Property\PropertyBuilder
+
+  Floorfy\Domain\Model\Property\TourBuilder:
+    class: Floorfy\Domain\Model\Property\TourBuilder

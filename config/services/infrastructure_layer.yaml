@@ -8,3 +8,15 @@ services:
   Floorfy\Infrastructure\Validator\Property\CreatePropertyRequestValidator:
     arguments:
       $validatorSchemaPath: "%validator.schema_path%"
+
+  Floorfy\Infrastructure\Validator\Property\CreateTourRequestValidator:
+    arguments:
+      $validatorSchemaPath: "%validator.schema_path%"
+
+  Floorfy\Infrastructure\Validator\Property\UpdatePropertyRequestValidator:
+    arguments:
+      $validatorSchemaPath: "%validator.schema_path%"
+
+  Floorfy\Infrastructure\Validator\Property\UpdateTourRequestValidator:
+    arguments:
+      $validatorSchemaPath: "%validator.schema_path%"

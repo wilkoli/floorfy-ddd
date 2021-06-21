@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Floorfy\Domain\Model\Property;
 
 use Carbon\Carbon;
+use Doctrine\ORM\PersistentCollection;
+use Floorfy\Domain\Model\ValueObject\TourCollection;
 
 class Property
 {
@@ -14,7 +16,7 @@ class Property
     private $title;
     /** @var string */
     private $description;
-    /** @var []Tour */
+    /** @var TourCollection */
     private $tours;
     /** @var Carbon */
     private $createdAt;
@@ -25,7 +27,7 @@ class Property
     {
         $this->title = $title;
         $this->description = $description;
-        $this->tours = [];
+        $this->tours = TourCollection::createFromArray([]);
         $this->createdAt = new Carbon();
     }
 
@@ -46,12 +48,27 @@ class Property
 
     public function addTour(Tour $tour): void
     {
-        $this->tours[] = $tour;
+        $this->tours->add($tour);
     }
 
-    public function tours(): array
+    public function tours(): TourCollection
     {
+        if ($this->tours instanceof PersistentCollection) {
+            return TourCollection::createFromArray($this->tours->toArray());
+        }
+
         return $this->tours;
+    }
+
+    public function updateProperty(?string $title, ?string $description): void
+    {
+        if ($title) {
+            $this->title = $title;
+        }
+
+        if ($description) {
+            $this->description = $description;
+        }
     }
 
     public function createdAt(): Carbon
@@ -62,5 +79,10 @@ class Property
     public function updatedAt(): Carbon
     {
         return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(Carbon $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
     }
 }
