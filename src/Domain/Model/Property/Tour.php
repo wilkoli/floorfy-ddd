@@ -19,10 +19,10 @@ class Tour
     /** @var Carbon */
     private $updatedAt;
 
-    public function __construct(Property $property, bool $active)
+    public function __construct(Property $property)
     {
         $this->property = $property;
-        $this->active = $active;
+        $this->active = false;
         $this->createdAt = new Carbon();
     }
 
@@ -46,6 +46,11 @@ class Tour
         return $this->active;
     }
 
+    public function setActive(bool $active): void
+    {
+        $this->active = $active;
+    }
+
     public function createdAt(): Carbon
     {
         return $this->createdAt;
@@ -54,5 +59,10 @@ class Tour
     public function updatedAt(): Carbon
     {
         return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(): void
+    {
+        $this->updatedAt = new Carbon();
     }
 }

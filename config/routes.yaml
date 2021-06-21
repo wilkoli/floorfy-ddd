@@ -3,3 +3,18 @@ create_property:
   path: /api/property/add
   controller: Floorfy\UserInterface\Http\Property\CreatePropertyController
   methods: [POST]
+
+update_property:
+  path: /api/property/update
+  controller: Floorfy\UserInterface\Http\Property\UpdatePropertyController
+  methods: [PUT]
+
+create_tour:
+  path: /api/tour/add
+  controller: Floorfy\UserInterface\Http\Property\CreateTourController
+  methods: [POST]
+
+update_tour:
+  path: /api/tour/update
+  controller: Floorfy\UserInterface\Http\Property\UpdateTourController
+  methods: [PUT]
